@@ -1,0 +1,43 @@
+<h1>Reports#index</h1>
+<p>Find me in app/views/reports/index.html.erb</p>
+
+
+<h1>Reports#index</h1>
+<p>Find me in app/views/reports/index.html.erb</p>
+<form action="report" method="GET">
+  start: <input type="date" name="start_date">
+  end: <input type="date" name="end_date">
+  <br>
+  <input type="submit" name="btn_cat" value="btn_cat">
+  <input type="submit" name="btn_date" value="btn_date">
+</form>
+# chat В даному прикладі використовуються формові теги та деякі елементи форми, 
+# такі як випадаючий список (select_tag) і текстові поля (text_field_tag).
+#  Ви можете налаштувати ці елементи форми відповідно до вашого проекту.
+
+# У методах дій (actions) report_by_category і report_by_dates контролера "Reports" ви можете отримати параметри з форми,
+#  щоб виконати відповідні запити до моделі "Operation" і підготувати дані для відображення в шаблонах перегляду.
+
+# Переконайтеся, що ваші шляхи маршрутів (config/routes.rb) налаштовані правильно для відповідного маршрутизування до цих методів дій 
+# контролера "Reports".
+<h1>Звіти</h1>
+
+<%= form_tag do %>
+  <div class="field">
+    <%= label_tag :category, "Звіт по категорії" %>
+    <%= select_tag :category, options_for_select(["Категорія 1", "Категорія 2", "Категорія 3"]) %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :start_date, "Дата початку" %>
+    <%= text_field_tag :start_date %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :end_date, "Дата закінчення" %>
+    <%= text_field_tag :end_date %>
+  </div>
+
+  <%= submit_tag "Звіт по категорії", name: "report_by_category" %>
+  <%= submit_tag "Звіт по датам", name: "report_by_dates" %>
+<% end %>
