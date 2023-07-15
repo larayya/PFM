@@ -2,13 +2,15 @@
 
 <h1>Categories</h1>
 
-<div id="categories">
-  <% @categories.each do |category| %>
-    <%= render category %>
-    <p>
-      <%= link_to "Show this category", category %>
-    </p>
-  <% end %>
-</div>
+<%= link_to "New category", new_category_path, class: "btn btn-primary" %><br><br>
 
-<%= link_to "New category", new_category_path %>
+<% @categories.each do |category| %>
+  <div>
+    <strong>ID:</strong> <%= category.id %><br>
+    <strong>Name:</strong> <%= category.name %><br>
+    <strong>Description:</strong> <%= category.description %><br>
+  </div>
+  <div>
+    <%= link_to 'Show this category', category %>
+  </div>
+<% end %>

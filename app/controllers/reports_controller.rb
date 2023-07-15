@@ -20,8 +20,10 @@
 
 class ReportsController < ApplicationController
   def index
+    # show categories
+    @categories = Category.all 
   end
-
+  
   def report
     if params[:btn_date]
       redirect_to({ 

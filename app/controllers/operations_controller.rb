@@ -12,8 +12,10 @@ class OperationsController < ApplicationController
 
   # GET /operations/new
   def new
+    @categories = Category.all
     @operation = Operation.new
   end
+  
 
   # GET /operations/1/edit
   def edit
