@@ -19,6 +19,8 @@ class OperationsController < ApplicationController
 
   # GET /operations/1/edit
   def edit
+    @operation = Operation.find(params[:id])
+    @categories = Category.all
   end
 
   # POST /operations or /operations.json

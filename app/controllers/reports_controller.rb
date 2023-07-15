@@ -18,12 +18,17 @@
   
 # end
 
-class ReportsController < ApplicationController
-  def index
-    # show categories
-    @categories = Category.all 
-  end
-  
+# class ReportsController < ApplicationController
+#   def index
+#     # show categories
+#     @categories = Category.all 
+#   end
+  class ReportsController < ApplicationController
+    def index
+      @categories = Category.all
+      @operations_count = Operation.count
+    end
+   
   def report
     if params[:btn_date]
       redirect_to({ 
