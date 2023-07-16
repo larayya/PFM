@@ -27,7 +27,7 @@ class ReportsController < ApplicationController
      
     def report_by_dates
       @data = params
-      @operations = Operation.order(:date)
+      @operations = Operation.order(:odate)
     end
             
   end
