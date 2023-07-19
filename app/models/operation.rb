@@ -3,9 +3,20 @@ class Operation < ApplicationRecord
   validates :odate, presence: true
   validates :description, presence: true
   belongs_to :category
-end
 
-# class Operation < ApplicationRecord
+def self.report_by_dates(start_date:, end_date:)
+  where(odate: DateTime.parse(start_date).beginning_of_day..DateTime.parse(end_date).end_of_day)
+end
+end
+  
+# def self.report_by_category(start:, end:)
+#   start_date = DateTime.parse(start).beginning_of_day
+#   end_date = DateTime.parse(end).end_of_day
+#   where(odate: start_date..end_date)
+# end
+# end
+
+
 #   def self.report_by_category(start_date, end_date)
 #     # Retrieve the expenses for the specified date range
 #     expenses = Operation.where(date: start_date..end_date, category_id: category_id)
