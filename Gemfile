@@ -75,3 +75,7 @@ group :test do
   gem 'rspec-rails', '~> 5.0'
 end
 
+
+gem "dockerfile-rails", ">= 1.5", :group => :development
+
+gem "pg", "~> 1.5"

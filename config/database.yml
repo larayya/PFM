@@ -23,3 +23,12 @@ test:
 production:
   <<: *default
   database: db/production.sqlite3
+
+# Postgres cluster restless-pond-7140-db created
+#   Username:    postgres
+#   Password:    MrlmX2MYXVLXx3R
+#   Hostname:    restless-pond-7140-db.internal
+#   Flycast:     fdaa:2:8ff4:0:1::2
+#   Proxy port:  5432
+#   Postgres port:  5433
+#   Connection string: postgres://postgres:MrlmX2MYXVLXx3R@restless-pond-7140-db.flycast:5432ss
