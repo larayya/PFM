@@ -1,37 +1,58 @@
-<h1 style="color: blue;">Reports</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reports</title>
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 style="color: blue;">Звіти</h1>
 
-<h3>Поточні категорії:</h3>
-<!--<% @categories.each do |category| %>
-  <p><%= category.name %></p>
-<% end %>-->
-<% @categories.each do |category| %> <p><%= category.name %></p> <% end %>
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Поточні категорії:</h3>
+        <ul class="list-group">
+          <% @categories.each do |category| %>
+            <li class="list-group-item"><%= category.name %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <h3>Кількість операцій: <%= @operations_count %></h3>
+      </div>
+    </div>
 
-<!--<h1>Кількість операцій:</h1>
-<p><%= @operations_count %></p>-->
-<h3>Кількість операцій: <%= @operations_count %></h3>
-<%= form_tag do %>
+    <div class="row mt-5">
+      <div class="col-md-6">
+        <%= form_tag basic_report_path, method: :get, class: "my-form" do %>
+          <div class="form-group">
+            <%= label_tag :category, "Категорія" %>
+            <%= select_tag :category, options_for_select(Category.pluck(:name)), class: "form-control" %>
+          </div>
 
-  <div class="field">
-    <%= label_tag :category, "Звіт по категорії" %>
-    <%= select_tag :category, options_for_select(Category.pluck(:name)) %><br>
+          <div class="form-group">
+            <%= label_tag :start_date, "Дата початку" %>
+            <%= text_field_tag :start_date, nil, class: "form-control datepicker" %>
+          </div>
+
+          <div class="form-group">
+            <%= label_tag :end_date, "Дата закінчення" %>
+            <%= text_field_tag :end_date, nil, class: "form-control datepicker" %>
+          </div>
+
+          <%= submit_tag "Звіт по категорії", name: "report_by_category", class: "btn btn-primary" %>
+          <%= submit_tag "Звіт по датам", name: "report_by_dates", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-  <%= label_tag :start_date, "Дата початку" %>
-  <%= text_field_tag :start_date, nil, class: 'datepicker' %><br>
-  </div>
-
-  <div class="field">
-    <%= label_tag :end_date, "Дата закінчення" %>
-    <%= text_field_tag :end_date, nil, class: "datepicker" %><br>
-  </div>
-
-  <%= submit_tag "Звіт по категорії", name: "report_by_category" %>
-  <%= submit_tag "Звіт по датам", name: "report_by_dates" %><br>
-  <% end %>
-
-<script>
-  $(document).ready(function() {
-    $('.datepicker').datepicker();
-  });
-</script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.datepicker').datepicker();
+    });
+  </script>
+</body>
+</html>

@@ -1,18 +1,55 @@
-<h1>Report by category</h1>
+<h1>Звіт за категорією</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Category Name</th>
-      <th>Amount</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @categories.each do |category| %>
+  <script
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+<div class="table-responsive">
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
       <tr>
-        <td><%= category.name %></td>
-        <td><%= category.calculate_amount %></td>
+        <th>Назва категорії</th>
+        <th>Сума</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+          <td><%= category[0] %></td>
+          <td><%= category[1] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <canvas id="report_by_cat" style="width:100%;max-width:700px"></canvas>
+  <script>
+
+var data = <%= @categories.to_json.html_safe %>;
+
+var barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+$(document).ready(function() {
+new Chart("report_by_cat", {
+  type: "pie",
+  data: {
+    labels: Object.keys(data),
+    datasets: [{
+      backgroundColor: barColors,
+      data: Object.values(data).map(Number)
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "Amount by Category"
+    }
+  }
+});
+})
+</script>
+</div>

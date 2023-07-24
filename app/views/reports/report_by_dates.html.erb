@@ -1,8 +1,7 @@
 <h1>Reports by dates</h1>
-<table>
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th>ID</th>
       <th>Date</th>
       <th>Amount</th>
     </tr>
@@ -10,9 +9,8 @@
   <tbody>
     <% @operations.each do |operation| %>
       <tr>
-        <td><%= operation.id %></td>
-        <td><%= operation.odate %></td>
-        <td><%= operation.amount %></td>
+        <td><%= operation[0] %></td>
+        <td><%= operation[1] %></td>
       </tr>
     <% end %>
   </tbody>

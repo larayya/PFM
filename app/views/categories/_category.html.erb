@@ -1,12 +1,16 @@
-<div id="<%= dom_id category %>">
-  <p>
-    <strong>Name:</strong>
-    <%= category.name %>
-  </p>
+<div class="container mt-5">
+    <h1 style="color: blue;">Звіти</h1>
 
-  <p>
-    <strong>Description:</strong>
-    <%= category.description %>
-  </p>
+    <% @categories.each do |category| %>
+      <div id="<%= dom_id category %>" class="category-info">
+        <p>
+          <strong>Name:</strong>
+          <%= category.name %>
+        </p>
 
-</div>
+        <p>
+          <strong>Description:</strong>
+          <%= category.description %>
+        </p>
+      </div>
+    <% end %>

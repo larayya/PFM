@@ -5,7 +5,9 @@ class Operation < ApplicationRecord
   belongs_to :category
 
 def self.report_by_dates(start_date:, end_date:)
-  where(odate: DateTime.parse(start_date).beginning_of_day..DateTime.parse(end_date).end_of_day)
+  where(odate: start_date.beginning_of_day..end_date.end_of_day)
+  .group('strftime("%d-%m-%Y", operations.odate)')
+  .sum(:amount)
 end
 end
   
