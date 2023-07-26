@@ -1,16 +1,15 @@
 <div class="container mt-5">
-    <h1 style="color: blue;">Звіти</h1>
+    <h1>Категорія #<%= @category.id %></h1>
 
-    <% @categories.each do |category| %>
-      <div id="<%= dom_id category %>" class="category-info">
+    <div class="category-info">
         <p>
           <strong>Name:</strong>
-          <%= category.name %>
+          <%= @category.name %>
         </p>
 
         <p>
           <strong>Description:</strong>
-          <%= category.description %>
+          <%= @category.description %>
         </p>
       </div>
-    <% end %>
+   

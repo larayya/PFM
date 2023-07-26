@@ -6,25 +6,33 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-  <!-- Підключення CSS Bootstrap через CDN -->
+<!-- Підключення JavaScript Bootstrap через CDN -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Підключення jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Підключення jQuery UI -->
+<!--<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>-->
+
+<!-- Removed older jQuery UI -->
+
+<!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/smoothness/jquery-ui.css">-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+<!-- Also remove this if you're using jQuery UI's datepicker -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+<!-- Підключення CSS Bootstrap через CDN -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
 
   
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-
-  <!-- Підключення JavaScript Bootstrap через CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
-  
-  <!-- Підключення jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  
-  <%# <!-- Підключення jQuery UI -->
-  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/smoothness/jquery-ui.css"> %>
-
-   
 
   </head>
 
@@ -32,7 +40,7 @@
     <%= render "shared/header" %>
     <div class="container">
       <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-12">
         <%= yield %>
     <div class="col-lg-4">
     <%= render 'shared/footer' %>

@@ -1,16 +1,17 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Categories</h1>
+<h1 class="mb-4">Categories</h1>
 
 <%= link_to "New category", new_category_path, class: "btn btn-primary" %><br><br>
 
-<% @categories.each do |category| %>
-  <div>
-    <strong>ID:</strong> <%= category.id %><br>
-    <strong>Name:</strong> <%= category.name %><br>
-    <strong>Description:</strong> <%= category.description %><br>
-  </div>
-  <div>
-    <%= link_to 'Show this category', category %>
-  </div>
-<% end %>
+<div class="row">
+  <% @categories.each do |category| %>
+    <div class="card" style="width: 18rem; float: left; margin: 0 10px 10px 0;">
+      <div class="card-body">
+        <h5 class="card-title">#<%= category.id %>: <%= category.name %></h5>
+        <p class="card-text"><%= category.description %></p>
+        <%= link_to 'Show this category', category, :class => "card-link" %>
+      </div>
+    </div>
+  <% end %>
+</div>

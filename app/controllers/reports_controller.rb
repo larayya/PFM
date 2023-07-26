@@ -1,6 +1,7 @@
 class ReportsController < ApplicationController
   def index
       @categories = Category.all
+      # @operation = Operation.all
       @operations_count = Operation.count
   end
    
